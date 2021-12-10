@@ -1,18 +1,23 @@
 from random import randint
 A=[]
-for i in range(10):
-    A.append(randint(-1100,1100))
-print(A)
+for i in range(999999):
+    A.append(randint(-1100000,1100000))
+A.append(9999999999)
 b=sorted(A)
-def bin(A):
-    n=len(A)
-    p=0
-    x=int(input())
-    while x!=A[len(A)/2]:
-        r=(n-p)/2
-        if A[r]>0:
-            p=r 
-        if A[r]<0:
-            n=r
-    return print(r)        
-print(bin(b))
+import time
+def bin(b,x):
+    n= 0
+    v= len(b) - 1
+    while n<=v:
+        y = (n+v)//2
+        if b[y] == x:
+            return y+1
+        if b[y]<x:
+            n= y + 1
+        elif b[y]>x:
+            v= y - 1
+x=int(input())
+start = time.time()            
+print(bin(b,x))
+end = time.time()
+print (end-start)
