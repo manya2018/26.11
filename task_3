@@ -1,0 +1,25 @@
+from random import randint
+import time
+A=[]
+for i in range(999999):
+    A.append(randint(-1100000,-1))
+A.append(1)
+B=sorted(A)
+a=0 
+b=len(A)-1
+def bin(A,a,b,x):
+    if a<=b:
+        i=(a+b)//2
+        if A[i]==x:
+            return i+1 
+        if A[i]>x:
+            return bin(A,a,i-1,x)
+        if A[i]<x:
+            return bin(A,i+1,b,x)
+    else:
+        return -1
+x=int(input())
+start = time.time()            
+print(bin(B,a,b,x))
+end = time.time()
+print (end-start)  
