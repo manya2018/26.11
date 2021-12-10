@@ -1,12 +1,16 @@
 from random import randint
+import time
 A=[]
-for i in range(10):
-    A.append(randint(-1100,1100))
-print(A)
+for i in range(999999):
+    A.append(randint(-1100000,-1))
+A.append(1)
 b=sorted(A)
 def lin(A):
     x=int(input())
     for i in range (len(A)):
         if A[i]==x:
             return print(i+1)
+start = time.time()            
 print(lin(b))
+end = time.time()
+print (end-start) 
